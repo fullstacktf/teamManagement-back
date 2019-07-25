@@ -70,18 +70,18 @@ exports.update = (req, res) => {
 		.catch((error) => res.status(400).send(error));			 
 };
 
-// Delete a Customer by Id
+// Delete a LegalGuardian by Id
 exports.delete = (req, res) => {
-	return Customer
-					.findById(req.params.customerId)
-					.then(customer => {
-						if(!customer) {
+	return LegalGuardians
+					.findById(req.params.legalGuardiansId)
+					.then(legalGuardians => {
+						if(!legalGuardians) {
 							return res.status(400).send({
-								message: 'Customer Not Found',
+								message: 'legalGuardians Not Found',
 							});
 						}
 
-						return customer.destroy()
+						return LegalGuardians.destroy()
 														.then(() => res.status(200).json({message: "Destroy successfully!"}))
 														.catch(error => res.status(400).send(error));
 					})

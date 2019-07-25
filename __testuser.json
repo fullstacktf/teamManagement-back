@@ -1,0 +1,13 @@
+{
+    "name": "Nicolas",
+    "lastname": "Acosta Delgado",
+    "email": "info@nicolasacosta.es",
+    "passwd": "123456",
+    "birthdate": "2019-03-03",
+    "active": "true",
+    "last_login": "2019-03-03",
+    "legal_guardians": "",
+    "main_guardian": "3",
+    "profile_photo": "photo.jpg",
+    "type_of_user": "1"
+    }

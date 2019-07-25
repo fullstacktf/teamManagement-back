@@ -30,9 +30,9 @@ exports.findAll = (req, res) => {
 		.catch(error => res.status(400).send(error))
 };
 
-// Find a Customer by Id
-exports.findById = (req, res) => {	
-	LegalGuardians.findById(req.params.legalGuardiansId,
+// Find a Customer by Pk
+exports.findByPk = (req, res) => {
+	LegalGuardians.findByPk(req.params.legalGuardiansId,
 				{attributes: { exclude: ["createdAt", "updatedAt"] }}
 			)
 			.then(legalGuardian => {
@@ -47,7 +47,7 @@ exports.findById = (req, res) => {
 
 // Update a LegalGuardians
 exports.update = (req, res) => {
-	return LegalGuardians.findById(req.params.legalGuardiansId)
+	return LegalGuardians.findByPk(req.params.legalGuardiansId)
 		.then(
 			legalGuardian => {
 				if(!legalGuardian){
@@ -55,7 +55,7 @@ exports.update = (req, res) => {
 						message: 'legalGuardians Not Found',
 					});
 				}
-				return legalGuardian.update({
+				return LegalGuardians.update({
                                         name: req.body.name,
                                         lastname: req.body.lastname,
                                         email: req.body.email,
@@ -63,7 +63,7 @@ exports.update = (req, res) => {
                                         address: req.body.address,
                                         nif: req.body.nif
 									})
-									.then(() => res.status(200).json(customer))
+									.then(() => res.status(200).json(legalGuardian))
 									.catch((error) => res.status(400).send(error));
 				}
 			)
@@ -73,7 +73,7 @@ exports.update = (req, res) => {
 // Delete a LegalGuardian by Id
 exports.delete = (req, res) => {
 	return LegalGuardians
-					.findById(req.params.legalGuardiansId)
+					.findByPk(req.params.legalGuardiansId)
 					.then(legalGuardians => {
 						if(!legalGuardians) {
 							return res.status(400).send({

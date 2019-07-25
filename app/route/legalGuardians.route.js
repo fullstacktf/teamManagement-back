@@ -8,7 +8,7 @@ module.exports = function(app) {
     app.get('/api/v1/legalGuardians', legalGuardians.findAll);
 
     // Retrieve a single legalGuardian by Id
-    app.get('/api/v1/legalGuardians/:legalGuardiansId', legalGuardians.findById);
+    app.get('/api/v1/legalGuardians/:legalGuardiansId', legalGuardians.findByPk);
 
     // Update a legalGuardians with Id
     app.put('/api/v1/legalGuardians/:legalGuardiansId', legalGuardians.update);

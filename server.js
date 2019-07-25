@@ -10,13 +10,13 @@ db.sequelize.sync({force: true}).then(() => {
   console.log('Drop and Resync with { force: true }');
 });
 
-require('./app/route/customer.route')(app);
 require('./app/route/user.route')(app);
 require('./app/route/legalGuardians.route')(app);
+require('./app/route/team.route')(app);
  
 // Create a Server
 var server = app.listen(3000, function () {
- 
+
   var host = server.address().address
   var port = server.address().port
  

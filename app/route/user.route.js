@@ -8,7 +8,7 @@ module.exports = function(app) {
     app.get('/api/v1/users', users.findAll);
 
     // Retrieve a single Customer by Id
-    app.get('/api/v1/users/:userId', users.findById);
+    app.get('/api/v1/users/:userId', users.findByPk);
 
     // Update a Customer with Id
     app.put('/api/v1/users/:userId', users.update);

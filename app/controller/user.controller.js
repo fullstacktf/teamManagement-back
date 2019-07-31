@@ -23,7 +23,7 @@ exports.create = (req, res) => {
 		})
 		.catch(error => res.status(400).send(error))
 };
- 
+
 // Fetch all Users
 exports.findAll = (req, res) => {
 	User.findAll({
@@ -36,8 +36,8 @@ exports.findAll = (req, res) => {
 };
 
 // Find a User by Id
-exports.findById = (req, res) => {	
-	User.findById(req.params.userId,
+exports.findByPk = (req, res) => {	
+	User.findByPk(req.params.userId,
 				{attributes: { exclude: ["createdAt", "updatedAt"] }}
 			)
 			.then(user => {
@@ -52,7 +52,7 @@ exports.findById = (req, res) => {
 
 // Update a User
 exports.update = (req, res) => {
-	return User.findById(req.params.userId)
+	return User.findByPk(req.params.userId)
 		.then(
 			user => {
 				if(!user){
@@ -75,7 +75,7 @@ exports.update = (req, res) => {
 // Delete a User by Id
 exports.delete = (req, res) => {
 	return User
-					.findById(req.params.userId)
+					.findByPk(req.params.userId)
 					.then(user => {
 						if(!user) {
 							return res.status(400).send({

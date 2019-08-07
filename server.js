@@ -11,8 +11,6 @@ db.sequelize.sync({force: true}).then(() => {
 });
 
 require('./app/route/user.route')(app);
-require('./app/route/legalGuardians.route')(app);
-require('./app/route/team.route')(app);
  
 // Create a Server
 var server = app.listen(3000, function () {

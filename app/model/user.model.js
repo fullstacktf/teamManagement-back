@@ -19,23 +19,23 @@ module.exports = (sequelize, Sequelize) => {
 				type: Sequelize.BOOLEAN
 			},
 			knowns_ips: {
-				type: Sequelize.ARRAY
+				type: Sequelize.JSON
 			},
 			last_connection: {
 				type: Sequelize.DATE
 			},
 			photo: {
-				type: Sequelize.VARCHAR
+				type: Sequelize.STRING
 			},
 			user_history: {
-				type: Sequelize.ARRAY
+				type: Sequelize.JSON
 			},
 			address: {
 				type: Sequelize.TEXT
 			}
 		});
-    	user.associate = function(models) {
-			user.hasMany(models.legal_guardians,{
+    	User.associate = function(models) {
+			User.hasMany(models.legal_guardians,{
 
 			});
 		};

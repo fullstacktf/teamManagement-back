@@ -19,10 +19,8 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         }
     });
-    legal_guardians.associate = function(models) {
-        legal_guardians.belongsTo(models.user,{
-            foreignKey: 'id'
-        });
+    Legal_guardians.associate = function(models) {
+        Legal_guardians.belongsTo(models.user,);
     };
 
     return Legal_guardians;

@@ -13,5 +13,6 @@ db.sequelize = sequelize;
 
 //Models/tables
 db.users = require('../model/user.model')(sequelize, Sequelize);
+db.legal_guardians = require('../model/legal_guardians.model')(sequelize, Sequelize);
 
 module.exports = db;

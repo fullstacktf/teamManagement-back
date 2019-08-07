@@ -9,29 +9,29 @@ module.exports = (sequelize, Sequelize) => {
 			email: {
 				type: Sequelize.STRING
 			},
-			passwd: {
+			password: {
 				type: Sequelize.STRING
 			},
 			birthdate: {
 				type: Sequelize.DATEONLY
 			},
-			active: {
+			user_active: {
 				type: Sequelize.BOOLEAN
 			},
-			last_login: {
+			knowns_ips: {
+				type: Sequelize.ARRAY
+			},
+			last_connection: {
 				type: Sequelize.DATE
 			},
-			legal_guardians: {
-				type: Sequelize.STRING
+			photo: {
+				type: Sequelize.VARCHAR
 			},
-			main_guardian: {
-				type: Sequelize.INTEGER
+			user_history: {
+				type: Sequelize.ARRAY
 			},
-			profile_photo: {
-				type: Sequelize.STRING
-			},
-			type_of_user: {
-				type: Sequelize.INTEGER                     
+			address: {
+				type: Sequelize.TEXT
 			}
 		});
 

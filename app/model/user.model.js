@@ -35,7 +35,9 @@ module.exports = (sequelize, Sequelize) => {
 			}
 		});
     	User.associate = function(models) {
-			User.hasMany(models.legal_guardians,);
+			User.hasMany(models.legal_guardians,{
+				foreignKey: 'id_user',
+			});
 		};
 
 		return User;

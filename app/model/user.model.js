@@ -34,6 +34,11 @@ module.exports = (sequelize, Sequelize) => {
 				type: Sequelize.TEXT
 			}
 		});
+    	user.associate = function(models) {
+			user.hasMany(models.legal_guardians,{
+
+			});
+		};
 
 		return User;
 

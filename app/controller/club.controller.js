@@ -7,9 +7,19 @@ exports.create = (req, res) => {
     Club.create({
         name: req.body.name,
     })
-        .then(user => {
+        .then(club => {
             // Send created customer to client
-            res.json(user);
+            res.json(club);
+        })
+        .catch(error => res.status(400).send(error))
+};
+
+// Fetch all Users
+exports.findAll = (req, res) => {
+    Club.findAll({
+    })
+        .then(clubs => {
+            res.json(clubs);
         })
         .catch(error => res.status(400).send(error))
 };

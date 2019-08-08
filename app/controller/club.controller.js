@@ -21,5 +21,6 @@ exports.findAll = (req, res) => {
         .then(clubs => {
             res.json(clubs);
         })
-        .catch(
+        .catch(error => res.status(400).send(error))
+};
 

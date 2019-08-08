@@ -11,6 +11,7 @@ db.sequelize.sync({force: true}).then(() => {
 });
 
 require('./app/route/user.route')(app);
+require('./app/route/club.route')(app);
  
 // Create a Server
 var server = app.listen(3000, function () {

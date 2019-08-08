@@ -1,12 +1,21 @@
 module.exports = (sequelize, Sequelize) => {
     const User = sequelize.define('user', {
-			name: {
+			user_id: {
+				type: Sequelize.UUID
+			},
+			user_perms: {
+				type: Sequelize.JSON
+			},
+    		name: {
 				type: Sequelize.STRING
 			},
 			lastname: {
 				type: Sequelize.STRING
 			},
 			email: {
+				type: Sequelize.STRING
+			},
+			phone: {
 				type: Sequelize.STRING
 			},
 			password: {
@@ -19,7 +28,7 @@ module.exports = (sequelize, Sequelize) => {
 				type: Sequelize.BOOLEAN
 			},
 			knowns_ips: {
-				type: Sequelize.JSON
+				type: Sequelize.STRING
 			},
 			last_connection: {
 				type: Sequelize.DATE
@@ -28,7 +37,7 @@ module.exports = (sequelize, Sequelize) => {
 				type: Sequelize.STRING
 			},
 			user_history: {
-				type: Sequelize.JSON
+				type: Sequelize.STRING
 			},
 			address: {
 				type: Sequelize.TEXT
@@ -36,7 +45,7 @@ module.exports = (sequelize, Sequelize) => {
 		});
     	User.associate = function(models) {
 			User.hasMany(models.legal_guardians,{
-				foreignKey: 'id_user',
+				foreignKey: 'user_id',
 			});
 		};
 

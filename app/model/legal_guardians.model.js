@@ -18,17 +18,16 @@ module.exports = (sequelize, Sequelize) => {
         dni: {
             type: Sequelize.STRING
         },
-        id_user: {
+        user_id: {
             type: Sequelize.UUID
         }
 
     });
     Legal_guardians.associate = function(models) {
         Legal_guardians.belongsTo(models.user,{
-                foreignKey: 'id_user',
+                foreignKey: 'user_id',
             });
     };
-
     return Legal_guardians;
 
 }

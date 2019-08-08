@@ -13,7 +13,7 @@ MODELOS DE LA BASE DE DATOS
 | legal_guardians      |              | legal_guardians | hasMany           |
 | main_legal_guardians | VARCHAR      |                 |                   |
 | photo                | VARCHAR      |                 |                   |
-| type_of_user         |              | user_types      | hasMany           |
+| user_perms           |              | user_perms      | hasMany           |
 | user_history         | ARRAY        |                 |                   |
 | address              | TEXT         |                 |                   |
 

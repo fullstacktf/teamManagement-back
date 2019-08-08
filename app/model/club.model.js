@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
         Club.hasMany(models.courts,{
             foreignKey: 'club_id',
         });
+        Club.hasMany(models.teams,{
+            foreignKey: 'club_id',
+        });
     };
 
     return Club;

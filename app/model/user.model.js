@@ -3,9 +3,6 @@ module.exports = (sequelize, Sequelize) => {
 			user_id: {
 				type: Sequelize.UUID
 			},
-			user_perms: {
-				type: Sequelize.JSON
-			},
     		name: {
 				type: Sequelize.STRING
 			},

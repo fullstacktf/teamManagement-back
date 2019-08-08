@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Club = sequelize.define('club', {
+    const Team = sequelize.define('team', {
         team_id: {
             type: Sequelize.UUID
         },
@@ -12,12 +12,22 @@ module.exports = (sequelize, Sequelize) => {
         name: {
             type: Sequelize.STRING
         },
+        first_coach: {
+            type: Sequelize.INTEGER
+        }
+        second_coach: {
+            type: Sequelize.INTEGER
+        },
+        physical_trainer: {
+            type: Sequelize.INTEGER
+        }
+
     });
-    Club.associate = function(models) {
-        Club.hasMany(models.courts,{
+    Team.associate = function(models) {
+        Team.belongsTo(models.club,{
             foreignKey: 'club_id',
         });
     };
 
-    return Club;
+    return Team;
 }

@@ -7,9 +7,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
     });
-    User.associate = function(models) {
-        User.hasMany(models.legal_guardians,{
-            foreignKey: 'user_id',
+    Club.associate = function(models) {
+        Club.hasMany(models.courts,{
+            foreignKey: 'club_id',
         });
     };
 

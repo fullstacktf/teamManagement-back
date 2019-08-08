@@ -31,3 +31,18 @@ exports.findAll = (req, res) => {
 		})
 		.catch(error => res.status(400).send(error))
 };
+
+// Find a User by Pk
+exports.findByPk = (req, res) => {
+	User.findByPk(req.params.userId,
+		{attributes: { exclude: ["createdAt", "updatedAt"] }}
+	)
+		.then(user => {
+				if (!user){
+					return res.status(404).json({message: "User Not Found"})
+				}
+				return res.status(200).json(user)
+			}
+		)
+		.catch(error => res.status(400).send(error));
+};

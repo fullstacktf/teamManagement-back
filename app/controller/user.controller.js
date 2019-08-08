@@ -46,3 +46,33 @@ exports.findByPk = (req, res) => {
 		)
 		.catch(error => res.status(400).send(error));
 };
+
+// Update a User
+exports.update = (req, res) => {
+	return User.findByPk(req.params.userId)
+		.then(
+			user => {
+				if(!user){
+					return res.status(404).json({
+						message: 'User Not Found',
+					});
+				}
+				return user.update({
+					userId: req.body.userId,
+					name: req.body.name,
+					lastname: req.body.lastname,
+					email: req.body.email,
+					phone: req.body.phone,
+					password: req.body.password,
+					birthdate: req.body.birthdate,
+					user_active: req.body.user_active,
+					last_connection: req.body.last_connection,
+					photo: req.body.photo,
+					address: req.body.address
+				})
+					.then(() => res.status(200).json(user))
+					.catch((error) => res.status(400).send(error));
+			}
+		)
+		.catch((error) => res.status(400).send(error));
+};

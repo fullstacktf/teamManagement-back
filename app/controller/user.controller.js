@@ -22,3 +22,12 @@ exports.create = (req, res) => {
 		})
 		.catch(error => res.status(400).send(error))
 };
+// Fetch all Users
+exports.findAll = (req, res) => {
+	User.findAll({
+	})
+		.then(users => {
+			res.json(users);
+		})
+		.catch(error => res.status(400).send(error))
+};

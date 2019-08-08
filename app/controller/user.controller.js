@@ -76,3 +76,20 @@ exports.update = (req, res) => {
 		)
 		.catch((error) => res.status(400).send(error));
 };
+
+// Delete a User by Id
+exports.delete = (req, res) => {
+	return User
+		.findByPk(req.params.userId)
+		.then(user => {
+			if(!user) {
+				return res.status(400).send({
+					message: 'User Not Found',
+				});
+			}
+			return user.destroy()
+				.then(() => res.status(200).json({message: "Destroy successfully!"}))
+				.catch(error => res.status(400).send(error));
+		})
+		.catch(error => res.status(400).send(error));
+};

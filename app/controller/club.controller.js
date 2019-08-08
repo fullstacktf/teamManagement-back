@@ -8,18 +8,18 @@ exports.create = (req, res) => {
         name: req.body.name,
     })
         .then(club => {
-            // Send created customer to client
+            // Send created club to client
             res.json(club);
         })
         .catch(error => res.status(400).send(error))
 };
 
-// Fetch all Users
+// Fetch all Clubs
 exports.findAll = (req, res) => {
     Club.findAll({
     })
         .then(clubs => {
             res.json(clubs);
         })
-        .catch(error => res.status(400).send(error))
-};
+        .catch(
+

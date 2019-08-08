@@ -14,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         first_coach: {
             type: Sequelize.INTEGER
-        }
+        },
         second_coach: {
             type: Sequelize.INTEGER
         },

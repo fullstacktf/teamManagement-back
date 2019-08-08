@@ -18,5 +18,5 @@ module.exports = (sequelize, Sequelize) => {
             foreignKey: 'club_id',
         });
     };
-    return Club;
+    return Court;
 }

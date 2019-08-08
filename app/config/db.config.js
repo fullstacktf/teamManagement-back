@@ -14,5 +14,9 @@ db.sequelize = sequelize;
 //Models/tables
 db.users = require('../model/user.model')(sequelize, Sequelize);
 db.legal_guardians = require('../model/legal_guardians.model')(sequelize, Sequelize);
+db.club = require('../model/club.model')(sequelize, Sequelize);
+db.court = require('../model/court.model')(sequelize, Sequelize);
+db.team = require('../model/team_model')(sequelize, Sequelize);
+db.team_staff = require('../model/team_staff.model')(sequelize, Sequelize);
 
 module.exports = db;
